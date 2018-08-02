@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chess" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/envelope" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/envelopes" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fibonacci" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-parser" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-parser" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-parser" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lucky-tickets" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/number-to-word" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/numbersequence" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/triangle-sort" charset="UTF-8" />
+  </component>
+</project>
