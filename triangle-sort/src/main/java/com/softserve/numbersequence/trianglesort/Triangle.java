@@ -1,18 +1,18 @@
 package com.softserve.numbersequence.trianglesort;
 
-import java.util.Objects;
-
 public class Triangle {
     private String name;
     private double sideA;
     private double sideB;
     private double sideC;
+    private double square;
 
     private Triangle(String name, double sideA, double sideB, double sideC) {
         this.name = name;
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
+        this.square = calculateSquare();
     }
 
     /**
@@ -48,6 +48,10 @@ public class Triangle {
         return sideC;
     }
 
+    public double getSquare() {
+        return square;
+    }
+
     /**
      * Checks if triangle is valid.
      *
@@ -73,12 +77,12 @@ public class Triangle {
      * @return square of triangle.
      */
 
-    public double getSquare() {
+    public double calculateSquare() {
         double p = (getSideA() + getSideB() + getSideC()) / 2;
         return Math.sqrt(p * (p - getSideA()) * (p - getSideB()) * (p - getSideC()));
     }
 
-  /**
+    /**
      * Equals triangles
      *
      * @param o - other triangle
@@ -88,11 +92,10 @@ public class Triangle {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Triangle triangle = (Triangle) o;
-        return Double.compare(triangle.sideA, sideA) == 0 &&
-                Double.compare(triangle.sideB, sideB) == 0 &&
-                Double.compare(triangle.sideC, sideC) == 0 &&
-                Objects.equals(name.toLowerCase(), triangle.name.toLowerCase());
+
+        return Double.compare(triangle.square, square) == 0;
     }
 
     /**
@@ -102,8 +105,7 @@ public class Triangle {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(name.toLowerCase(), sideA, sideB, sideC);
+        long temp = Double.doubleToLongBits(square);
+        return (int) (temp ^ (temp >>> 32));
     }
-
-
 }
