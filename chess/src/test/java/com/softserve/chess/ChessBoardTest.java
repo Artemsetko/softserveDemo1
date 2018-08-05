@@ -1,6 +1,5 @@
 package com.softserve.chess;
 
-import com.softserve.chess.ChessBoard;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,6 +16,20 @@ public class ChessBoardTest {
         int actualHeight = chessBoard.getHeight();
         int actualWidth = chessBoard.getWidth();
         int expectedHeight = 8;
+        int expectedWidth = 8;
+
+        Assert.assertEquals(expectedHeight, actualHeight);
+        Assert.assertEquals(expectedWidth, actualWidth);
+    }
+
+    @Test
+    public void testGetValidInstance() {
+
+        String[] args = {"10", "8"};
+        ChessBoard chessBoard = ChessBoard.getInstance(args);
+        int actualHeight = chessBoard.getHeight();
+        int actualWidth = chessBoard.getWidth();
+        int expectedHeight = 10;
         int expectedWidth = 8;
 
         Assert.assertEquals(expectedHeight, actualHeight);

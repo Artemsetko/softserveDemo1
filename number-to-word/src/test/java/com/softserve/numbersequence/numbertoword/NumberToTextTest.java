@@ -13,7 +13,7 @@ public class NumberToTextTest {
     public void testswordsRusCorrectArgument() {
         String actual = NumberToText.WordsRus(123456789012345L);
         String expected = "сто двадцать три триллиона четыреста пятьдесят шесть миллиардов"
-                + " семьсот восемьдесят девять миллионов двенадцать тысяч триста сорок пять ";
+                + " семьсот восемьдесят девять миллионов двенадцать тысяч триста сорок пять";
         assertEquals(expected, actual);
 
     }
@@ -47,7 +47,7 @@ public class NumberToTextTest {
     public void testswordsRusCorrectNegativeArgument() {
         String actual = NumberToText.WordsRus(-999999999999999L);
         String expected = "минус девятьсот девяносто девять триллионов девятьсот девяносто девять миллиардов девятьсот девяносто девять миллионов"
-                + " девятьсот девяносто девять тысяч девятьсот девяносто девять ";
+                + " девятьсот девяносто девять тысяч девятьсот девяносто девять";
         assertEquals(expected, actual);
 
     }

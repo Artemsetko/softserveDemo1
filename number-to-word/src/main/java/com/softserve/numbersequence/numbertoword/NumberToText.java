@@ -56,13 +56,12 @@ class NumberToText {
 
         //  form the text of the number in words
         numText = numText + WordsToThousand(trillion, 0) + WordsToThousand(billion, 1) + WordsToThousand(million, 2) + WordsToThousand(thousand, 3) + WordsToThousand(toThousand, 4);
-        return numText;
+        return numText.trim();
 
     }
 
     /**
      * Form the text representation of a three-digit number, taking into account its digit
-     *
      *
      * @param numericalValue - value to convert into pronounced string
      * @param index
@@ -86,13 +85,13 @@ class NumberToText {
         else numText = sampleText[2][hundreds] + sampleText[1][decimal] + sampleText[0][units];
 
         // form endings in units
-        if (index == 2) {
+        if (index == 3) {
             if (units == 1 && decimal != 1) numText = numText + "на ";
             else if (units == 2 & decimal != 1) numText = numText + "е ";
             if (units > 1 && decimal != 1) numText = numText + " ";
         } else {
             if (units == 1 && decimal != 1) numText = numText + "ин ";
-            if (units == 2 & decimal != 1) {
+            else if (units == 2 & decimal != 1) {
                 numText = numText + "а ";
             } else if (units != 0 & decimal != 1) numText = numText + " ";
         }

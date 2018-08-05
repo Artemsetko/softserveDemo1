@@ -2,6 +2,7 @@ package com.softserve.numbersequence.fileparser;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -51,7 +52,7 @@ public class FileParser {
     public static void replaceText(Path path, String textToFind, String textToReplace) {
         PrintWriter out = null;
         try {
-            List<String> stringList = Files.readAllLines(path);
+            List<String> stringList = Files.readAllLines(path, Charset.forName("UTF-8"));
             StringBuilder textToWrite = new StringBuilder();
             for (String s : stringList) {
                 String updatedText = s.replaceAll(textToFind, textToReplace);
@@ -78,7 +79,7 @@ public class FileParser {
     public static int getNumberOfCoincidence(Path path, String textToCount) {
         int counter = 0;
         try {
-            List<String> stringList = Files.readAllLines(path);
+            List<String> stringList = Files.readAllLines(path, Charset.forName("UTF-8"));
             counter = 0;
             for (String line : stringList) {
                 Pattern p = Pattern.compile(textToCount);
