@@ -53,17 +53,5 @@ public class LuckyTicketTest {
 
     }
 
-    @Test
-    public void getNumberOfSimpleLuckyTickets() {
-        int actual = LuckyTicket.getInstance("000000", "999999").getNumberOfSimpleLuckyTickets();
-        int expected = 55252;
-        assertEquals(actual, expected);
-    }
 
-    @Test
-    public void getNumberOfComplexLuckyTickets() {
-        int actual = LuckyTicket.getInstance("000000", "999999").getNumberOfComplexLuckyTickets();
-        int expected = 25081;
-        assertEquals(actual, expected);
-    }
 }

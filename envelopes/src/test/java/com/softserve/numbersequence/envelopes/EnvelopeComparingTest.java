@@ -26,12 +26,13 @@ public class EnvelopeComparingTest {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
                 {5, 8, 6, 7, 0}, {5, 4, 100, 1, 0}, {30, 40, 50, 10, 0},
-                {8, 10, 6, 7, 1}, {20, 28, 29, 26, -1}
+                {8, 10, 6, 7, 1}, {20, 28, 29, 26, -1}, {3, 5, 6, 4, -1},
+                {3, 3, 3, 3, 0}, {1, 1, 2, 2, 1}
         });
     }
 
     public EnvelopeComparingTest(int envelope1Input, int envelope2Input, int envelope3Input, int envelope4Input,
-                                        int expected) {
+                                 int expected) {
         this.envelope1Input = envelope1Input;
         this.envelope2Input = envelope2Input;
         this.envelope3Input = envelope3Input;
@@ -41,8 +42,8 @@ public class EnvelopeComparingTest {
 
     @Test
     public void comparing_two_Valid_Envelopes() {
-          Envelope envelope1 = Envelope.getEnvelope(String.valueOf(envelope1Input), String.valueOf(envelope2Input));
-          Envelope envelope2 = Envelope.getEnvelope(String.valueOf(envelope3Input), String.valueOf(envelope4Input));
-          assertEquals(expected, envelope1.compareTo(envelope2));
+        Envelope envelope1 = Envelope.getEnvelope(String.valueOf(envelope1Input), String.valueOf(envelope2Input));
+        Envelope envelope2 = Envelope.getEnvelope(String.valueOf(envelope3Input), String.valueOf(envelope4Input));
+        assertEquals(expected, envelope1.compareTo(envelope2));
     }
 }

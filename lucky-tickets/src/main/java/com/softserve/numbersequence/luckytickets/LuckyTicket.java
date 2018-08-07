@@ -12,6 +12,14 @@ public class LuckyTicket {
         this.maxNumber = maxNumber;
     }
 
+    public String getMinNumber() {
+        return minNumber;
+    }
+
+    public String getMaxNumber() {
+        return maxNumber;
+    }
+
     /**
      * Checks if ticket is valid.
      *
@@ -34,66 +42,31 @@ public class LuckyTicket {
     }
 
     /**
-     * Simple method that counts lucky tickets within a range in a specific way: if sum of left 3
-     * numbers equals to sum of right 3 numbers of a ticket number, then the ticket is lucky
-     *
-     * @return Number of found lucky tickets
+     * Method, which displays the rules of using this program, if there are no arguments passed from
+     * the command-line.
      */
-    public int getNumberOfSimpleLuckyTickets() {
-        int minNumber = Integer.parseInt(getMinNumber());
-        int maxNumber = Integer.parseInt(getMaxNumber());
-        int totalAmount = 0;
-        for (int i = minNumber; i <= maxNumber; i++) {
-            int i1 = i / 100000 % 10,
-                    i2 = i / 10000 % 10,
-                    i3 = i / 1000 % 10,
-                    i4 = i / 100 % 10,
-                    i5 = i / 10 % 10,
-                    i6 = i % 10;
-            if ((i1 + i2 + i3) == (i4 + i5 + i6)) {
-                totalAmount++;
-            }
-        }
-        return totalAmount;
+    public static void printInfo() {
+        System.out.println(
+                "This program counts lucky tickets within numerical limits defined by user.\n"
+                        + " It counts using two methods at a time: simple and complex.\n"
+                        + " You have to enter two valid numbers numbers like in an example: 000001, 131340 etc.\n");
     }
 
     /**
-     * Complicated method - if the sum of even numbers of the ticket is equal
-     * to the sum of odd numbers of the ticket,
-     * then the ticket is considered to be lucky.
-     * @return Number of found lucky tickets
+     * Print statistics of lucky tickets
+     *
+     * @param countSimple - number of simple lucky tickets
+     * @param countComplex - number of complex lucky tickets
      */
-    public int getNumberOfComplexLuckyTickets() {
-        int minNumber = Integer.parseInt(getMinNumber());
-        int maxNumber = Integer.parseInt(getMaxNumber());
-        int totalAmount = 0;
-        for (int i = minNumber; i <= maxNumber; i++) {
-            String checkNumber = String.valueOf(i);
-            char[] numberArray = checkNumber.toCharArray();
-            int evenSum = 0;
-            int oddSum = 0;
-            for (char symbol : numberArray) {
-                if (((int) symbol) % 2 == 0) {
-                    evenSum += Character.getNumericValue(symbol);
-                } else {
-                    oddSum += Character.getNumericValue(symbol);
-                }
-            }
-            if (evenSum == oddSum) {
-                totalAmount++;
-            }
+    public static void printLuckyStatistics(int countSimple, int countComplex){
+        if (countSimple > countComplex) {
+            System.out.println("Simple method win: " + countSimple + " vs. " + countComplex);
+        } else if (countComplex > countSimple) {
+            System.out.println("Complex method win: " + countComplex + " vs. " + countSimple);
+        } else {
+            System.out.println("Both methods are equals: " + countComplex + " vs. " + countSimple);
         }
-        return totalAmount;
     }
-
-    public String getMinNumber() {
-        return minNumber;
-    }
-
-    public String getMaxNumber() {
-        return maxNumber;
-    }
-
 
 }
 
