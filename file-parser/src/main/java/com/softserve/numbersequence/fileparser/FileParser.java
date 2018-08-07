@@ -5,10 +5,10 @@ import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 /**
  * A class that represents file parser.
@@ -17,30 +17,6 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class FileParser {
-    /**
-     * runs the application.
-     *
-     * @param args - user's input(path and text to count or path, textToFind and textToReplace)
-     */
-    public static void main(String[] args) {
-        if (args.length == 2) {
-            Path path = Paths.get(args[0]);
-            String textToCount = args[1];
-            System.out.println("Number of coincidence = "
-                    + getNumberOfCoincidence(path, textToCount));
-
-        } else if (args.length == 3) {
-            Path path = Paths.get(args[0]);
-            String textToFind = args[1];
-            String textToReplace = args[2];
-            replaceText(path, textToFind, textToReplace);
-
-        } else {
-            System.out.println("Wrong arguments!");
-        }
-    }
-
-
     /**
      * Replaces text.
      *
@@ -92,5 +68,17 @@ public class FileParser {
             e.printStackTrace();
         }
         return counter;
+    }
+
+    public static void printHelp() {
+       System.out.printf("Program works with files%n" +
+                "Supported operations:%n" +
+                "\tReplace all words in file with word to replace%n" +
+                "\tCount coincidence of given word in given file%n" +
+                "Params should be strings which depend on operation%n" +
+                "\t1 Operation need three strings, example:%n" +
+                "\t[path to the file] [string for being replaced] [string for replacing]%n" +
+                "\t2 Operation need two string, example:%n" +
+                "\t[path to the file] [string which program finds and counts]%n");
     }
 }

@@ -93,6 +93,8 @@ public class LuckyTicket {
     public String getMaxNumber() {
         return maxNumber;
     }
+
+
 }
 
 

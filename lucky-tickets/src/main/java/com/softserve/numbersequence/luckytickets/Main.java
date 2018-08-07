@@ -8,13 +8,7 @@ public class Main {
             LuckyTicket luckyTicket = LuckyTicket.getInstance(args[0], args[1]);
             int countSimple = luckyTicket.getNumberOfSimpleLuckyTickets();
             int countComplex = luckyTicket.getNumberOfComplexLuckyTickets();
-            if (countSimple > countComplex) {
-                System.out.println("Simple method win: " + countSimple + " vs. " + countComplex);
-            } else if (countComplex > countSimple) {
-                System.out.println("Complex method win: " + countComplex + " vs. " + countSimple);
-            } else {
-                System.out.println("Both methods are equals");
-            }
+            printLuckyStatistics(countSimple, countComplex);
         }
     }
 
@@ -27,5 +21,21 @@ public class Main {
                 "This program counts lucky tickets within numerical limits defined by user.\n"
                         + " It counts using two methods at a time: simple and complex.\n"
                         + " You have to enter two valid numbers numbers like in an example: 000001, 131340 etc.\n");
+    }
+
+    /**
+     * Print statistics of lucky tickets
+     *
+     * @param countSimple - number of simple lucky tickets
+     * @param countComplex - number of complex lucky tickets
+     */
+    public static void printLuckyStatistics(int countSimple, int countComplex){
+        if (countSimple > countComplex) {
+            System.out.println("Simple method win: " + countSimple + " vs. " + countComplex);
+        } else if (countComplex > countSimple) {
+            System.out.println("Complex method win: " + countComplex + " vs. " + countSimple);
+        } else {
+            System.out.println("Both methods are equals");
+        }
     }
 }

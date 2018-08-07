@@ -43,7 +43,7 @@ public interface TriangleUtil {
      * @return formatted text
      */
     static String deleteSpaces(String text){
-        return text.replaceAll("[\\s]{1,}", "");
+        return text.replaceAll("[\\s]+", "");
     }
 
     /**

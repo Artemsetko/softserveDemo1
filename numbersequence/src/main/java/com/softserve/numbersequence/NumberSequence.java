@@ -22,7 +22,7 @@ public class NumberSequence {
                 + "Входные параметры: длина и значение минимального квадрата.\n"
                 + "Выход: строка с рядом чисел.\n"
                 + "Example:\n"
-                + "java com.elementarytasks.task7.number_sequence.NumberSequence 8 10");
+                + "java com.softserve.numbersequence.NumberSequence 8 10");
     }
 
     public static String getNumberSequence(int length, int minSquare) {

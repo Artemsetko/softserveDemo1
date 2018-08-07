@@ -7,6 +7,7 @@ public class Triangle {
     private double sideC;
     private double square;
 
+    
     private Triangle(String name, double sideA, double sideB, double sideC) {
         this.name = name;
         this.sideA = sideA;
